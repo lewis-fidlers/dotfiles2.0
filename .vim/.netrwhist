@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/lewisfidlers/projects/spreds'
+let g:netrw_dirhist_2='/Users/lewisfidlers/projects/spreds/app/views/member_mailer'
+let g:netrw_dirhist_3='/Users/lewisfidlers/projects/spreds'
+let g:netrw_dirhist_4='/Users/lewisfidlers/projects/personal/money-rails'
+let g:netrw_dirhist_5='/Users/lewisfidlers/projects/spreds'
+let g:netrw_dirhist_6='/Users/lewisfidlers/projects/personal/money-rails'
+let g:netrw_dirhist_7='/Users/lewisfidlers/projects/spreds'
+let g:netrw_dirhist_8='/Users/lewisfidlers/projects/personal/royalle-teamers'
+let g:netrw_dirhist_9='/Users/lewisfidlers/projects/spreds/.git'
