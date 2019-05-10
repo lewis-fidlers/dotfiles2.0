@@ -79,8 +79,8 @@ endif
 set nocursorline " don't highlight current line
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/tmp/cache
 set background=dark
-" set guifont=fira-code
-set guifont=Inconsolata\ for\ Powerline:h20
+" set guifont=fira-code 
+set guifont=Source\ Code\ Pro\ Light:h18
 
 " keyboard shortcuts
 let mapleader = ','
