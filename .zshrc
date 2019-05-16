@@ -1,16 +1,30 @@
 # Start rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# Settings for nvm (node version manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# Add awscli and kubectl to path
+export PATH=~/Library/Python/3.7/bin:$HOME/bin:$PATH
+
+# add kubectl autocomplete
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/zafidlle/.oh-my-zsh
 
+# Source some aws session variables
+source ~/.aws/mfa
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -49,6 +63,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -88,6 +103,8 @@ alias mvim="open -a MacVim.app ."
 
 alias home="cd ~"
 alias spreds="cd ~/projects/spreds"
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
 
 #Git aliases
 alias git='hub'
@@ -99,6 +116,9 @@ alias gca='git commit -a'
 alias gc='git commit'
 alias sup='git push --set-upstream origin HEAD'
 alias g-='gco -'
+
+# Kubernetes
+alias k=kubectl
 
 today () {
   $(date '+%d%m%y')

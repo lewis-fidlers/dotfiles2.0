@@ -54,6 +54,9 @@ Plug 'tpope/vim-surround'
 Plug 'rstacruz/sparkup' "html snippets
 Plug 'nixon/vim-vmath' "Calculations for visual selection of numbers
 
+"Linting, syntax, ...
+Plug 'w0rp/ale'
+
 " Ruby/Rails specific
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
@@ -80,7 +83,7 @@ set nocursorline " don't highlight current line
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/tmp/cache
 set background=dark
 " set guifont=fira-code 
-set guifont=Source\ Code\ Pro\ Light:h18
+set guifont=Source\ Code\ Pro\ Light:h14
 
 " keyboard shortcuts
 let mapleader = ','
