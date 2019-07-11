@@ -9,12 +9,11 @@ export NVM_DIR="$HOME/.nvm"
 # Add awscli and kubectl to path
 export PATH=~/Library/Python/3.7/bin:$HOME/bin:$PATH
 
-# add kubectl autocomplete
-if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Set language
+export LC_ALL=en_US.UTF-8
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/zafidlle/.oh-my-zsh
 
@@ -135,6 +134,6 @@ ladida () {
     $url | pbcopy
 }
 
-alias timetogo="open -a 'Google Chrome' 'https://irail.be/route?to=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008821121&from=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008813003&date=$today&time=$now&timeSel=depart'"
+alias timetogo="open -a 'Google Chrome' 'https://irail.be/route?to=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008821121&from=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008819406&date=$today&time=$now&timeSel=depart'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
