@@ -31,6 +31,7 @@ set tabstop=8                                                " actual tabs occup
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+let g:netrw_liststyle = 3 " Set directory listing style
 
 " Plugins
 " Make sure to use single quotes
@@ -52,15 +53,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'rstacruz/sparkup' "html snippets
-Plug 'nixon/vim-vmath' "Calculations for visual selection of numbers
 
 "Linting, syntax, ...
 Plug 'w0rp/ale'
+Plug 'kchmck/vim-coffee-script'
 
 " Ruby/Rails specific
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
+
 Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown' " broken atm
+
+Plug 'dhruvasagar/vim-table-mode'
+
+" Elixir specific
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 " Search using the silver searcher.
@@ -89,6 +97,7 @@ set guifont=Source\ Code\ Pro\ Light:h14
 let mapleader = ','
 :map <leader>f :FZF --height=10<cr>
 :map <leader>a :Ag<space>
+:map <leader>d :Vexplore<cr>
 
 " in visual selection pres ++ to do some calculations
 vmap <expr>  ++  VMATH_YankAndAnalyse()
@@ -103,7 +112,7 @@ noremap <C-l> <C-w>l
 
 nnoremap <leader><space> :call Strip_trailing()<CR>
 " Theme settings
-let g:two_firewatch_italics=1
+" let g:two_firewatch_italics=1
 colo seoul256
 
 " Cursor settings
@@ -131,6 +140,12 @@ endfunction
 augroup whitespace
   autocmd BufWritePre *.rb call Strip_trailing()
 augroup END
+
+" Set filetype for Jenkinsfile
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" enable sparkup in js and jsx files
+autocmd FileType javascript,jsx runtime! ftplugin/html/sparkup.vim
 
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
 function! QuickfixFilenames()
