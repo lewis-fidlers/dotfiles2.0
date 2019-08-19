@@ -58,6 +58,10 @@ Plug 'rstacruz/sparkup' "html snippets
 Plug 'w0rp/ale'
 Plug 'kchmck/vim-coffee-script'
 
+"js/jsx/react
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 " Ruby/Rails specific
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'

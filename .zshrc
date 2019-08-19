@@ -17,6 +17,10 @@ export LC_ALL=en_US.UTF-8
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/zafidlle/.oh-my-zsh
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # Source some aws session variables
 source ~/.aws/mfa
 
