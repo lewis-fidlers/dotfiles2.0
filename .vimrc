@@ -55,19 +55,21 @@ Plug 'tpope/vim-surround'
 Plug 'rstacruz/sparkup' "html snippets
 
 "Linting, syntax, ...
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'kchmck/vim-coffee-script'
+Plug 'IN3D/vim-raml'
 
 "js/jsx/react
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'styled-components/vim-styled-components'
 
 " Ruby/Rails specific
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown' " broken atm
+Plug 'plasticboy/vim-markdown' " broken atm
 
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -94,7 +96,7 @@ endif
 set nocursorline " don't highlight current line
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/tmp/cache
 set background=dark
-" set guifont=fira-code 
+" set guifont=fira-code
 set guifont=Source\ Code\ Pro\ Light:h14
 
 " keyboard shortcuts
@@ -160,6 +162,19 @@ function! QuickfixFilenames()
   endfor
   return join(values(buffer_numbers))
 endfunction
+
+" Linter config
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
+
+let g:ale_fix_on_save = 1
+
+" Markdown writing config
+let g:vim_markdown_edit_url_in = 'vsplit'
+
+" --
 
 function! French_accented_text()
   %s/é/é/g
