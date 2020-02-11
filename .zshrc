@@ -7,7 +7,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # Add awscli and kubectl to path
-export PATH=~/Library/Python/3.7/bin:$HOME/bin:$PATH
+export PATH=~/Library/Python/3.7/bin:$HOME/bin:$HOME/.bin/:$PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -17,7 +18,7 @@ export LC_ALL=en_US.UTF-8
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/zafidlle/.oh-my-zsh
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
