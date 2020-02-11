@@ -33,6 +33,8 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  setlocal spell spelllang=en_gb
 let g:netrw_liststyle = 3 " Set directory listing style
+let g:netrw_altv = 1 " Open split to the right
+let g:netrw_winsize = 25 " Smaller window
 
 " Plugins
 " Make sure to use single quotes
@@ -59,6 +61,7 @@ Plug 'rstacruz/sparkup' "html snippets
 Plug 'dense-analysis/ale'
 Plug 'kchmck/vim-coffee-script'
 Plug 'IN3D/vim-raml'
+Plug 'chaquotay/ftl-vim-syntax'
 
 "js/jsx/react
 Plug 'pangloss/vim-javascript'
@@ -68,6 +71,9 @@ Plug 'styled-components/vim-styled-components'
 " Ruby/Rails specific
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
+
+" Svelte
+Plug 'evanleck/vim-svelte'
 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown' " broken atm
@@ -126,7 +132,12 @@ colo seoul256
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
+" fzf settings
+if !has("gui_running")
+  let g:fzf_colors =
+        \ { 'fg': ['fg', 'Normal'],
+        \ 'bg': ['bg', 'Normal']}
+endif
 " Lightline config
 set noshowmode
 let g:lightline = {
@@ -152,7 +163,7 @@ augroup END
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " enable sparkup in js and jsx files
-autocmd FileType javascript,jsx runtime! ftplugin/html/sparkup.vim
+autocmd FileType javascript,jsx,ftl,javascript.jsx,svelte runtime! ftplugin/html/sparkup.vim
 
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
 function! QuickfixFilenames()
