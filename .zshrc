@@ -7,7 +7,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # Add awscli and kubectl to path
-export PATH=~/Library/Python/3.7/bin:$HOME/bin:$HOME/.bin/:$PATH
+export PATH=~/Library/Python/3.7/bin:$HOME/bin:$HOME/.bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # If you come from bash you might have to change your $PATH.
@@ -120,6 +120,10 @@ alias gca='git commit -a'
 alias gc='git commit'
 alias sup='git push --set-upstream origin HEAD'
 alias g-='gco -'
+
+#jruby
+alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
+alias j12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
 
 # Kubernetes
 alias k=kubectl

@@ -47,7 +47,6 @@ Plug 'junegunn/fzf.vim'
 " Visuals
 Plug 'rakr/vim-two-firewatch'
 Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 
 Plug 'rking/ag.vim'
@@ -76,7 +75,12 @@ Plug 'tpope/vim-endwise'
 Plug 'evanleck/vim-svelte'
 
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown' " broken atm
+
+" markdown/writing
+Plug 'junegunn/goyo.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -111,6 +115,9 @@ let mapleader = ','
 :map <leader>f :FZF --height=10<cr>
 :map <leader>a :Ag<space>
 :map <leader>d :Vexplore<cr>
+:map <leader>l <ESC>csw]<ESC>Ea()<ESC>i
+
+:iab <expr> cld strftime("%d-%m-%Y")
 
 " in visual selection pres ++ to do some calculations
 vmap <expr>  ++  VMATH_YankAndAnalyse()
@@ -185,7 +192,8 @@ let g:ale_fix_on_save = 1
 
 " Markdown writing config
 let g:vim_markdown_edit_url_in = 'vsplit'
-
+" fix broken folding
+let g:vim_markdown_folding_style_pythonic = 1
 " --
 
 function! French_accented_text()
