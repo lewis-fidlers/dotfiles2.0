@@ -55,17 +55,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'rstacruz/sparkup' "html snippets
+Plug 'preservim/nerdtree'
 
 "Linting, syntax, ...
 Plug 'dense-analysis/ale'
 Plug 'kchmck/vim-coffee-script'
 Plug 'IN3D/vim-raml'
 Plug 'chaquotay/ftl-vim-syntax'
+Plug 'Galooshi/vim-import-js'
 
 "js/jsx/react
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Ruby/Rails specific
 Plug 'tpope/vim-rails'
@@ -110,12 +112,16 @@ set background=dark
 " set guifont=fira-code
 set guifont=Source\ Code\ Pro\ Light:h14
 
+"function to format json files
+com! FormatJSON %!python -m json.tool
+
 " keyboard shortcuts
 let mapleader = ','
 :map <leader>f :FZF --height=10<cr>
 :map <leader>a :Ag<space>
-:map <leader>d :Vexplore<cr>
+:map <leader>d :NERDTreeToggle<cr>
 :map <leader>l <ESC>csw]<ESC>Ea()<ESC>i
+:map <leader>j :FormatJSON<cr>
 
 :iab <expr> cld strftime("%d-%m-%Y")
 
@@ -160,11 +166,6 @@ function! Strip_trailing()
   let @/=previous_search
   call cursor(previous_cursor_line, previous_cursor_column)
 endfunction
-
-" strip trailing whitespace on Ruby buffer saves
-augroup whitespace
-  autocmd BufWritePre *.rb call Strip_trailing()
-augroup END
 
 " Set filetype for Jenkinsfile
 au BufNewFile,BufRead Jenkinsfile setf groovy

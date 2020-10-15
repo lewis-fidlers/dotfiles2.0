@@ -1,6 +1,8 @@
 # Start rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# Make vim the default editor
+export EDITOR='vim'
 # Settings for nvm (node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -141,6 +143,12 @@ ladida () {
   curl -G -s \
     --data-urlencode "text=$*" \
     $url | pbcopy
+}
+
+bane () {
+  quote="You merely adopted the dark. I was born in it, molded by it. I didn't see the light until I was already a man, by then it was nothing to me but blinding!"
+  result=${quote//dark/$*}
+  echo $result
 }
 
 alias timetogo="open -a 'Google Chrome' 'https://irail.be/route?to=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008821121&from=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008819406&date=$today&time=$now&timeSel=depart'"
