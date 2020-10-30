@@ -17,15 +17,19 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Set language
 export LC_ALL=en_US.UTF-8
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/zafidlle/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Where the vault server is running
+export VAULT_ADDR="http://127.0.0.1:8200"
+
 # Source some aws session variables
-source ~/.aws/mfa
+# source ~/.aws/mfa
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -69,7 +73,6 @@ ZSH_THEME="spaceship"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -154,3 +157,4 @@ bane () {
 alias timetogo="open -a 'Google Chrome' 'https://irail.be/route?to=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008821121&from=http%3A%2F%2Firail.be%2Fstations%2FNMBS%2F008819406&date=$today&time=$now&timeSel=depart'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"

@@ -41,7 +41,7 @@ let g:netrw_winsize = 25 " Smaller window
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Visuals
@@ -63,6 +63,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'IN3D/vim-raml'
 Plug 'chaquotay/ftl-vim-syntax'
 Plug 'Galooshi/vim-import-js'
+Plug 'nikvdp/ejs-syntax'
 
 "js/jsx/react
 Plug 'pangloss/vim-javascript'
@@ -117,7 +118,7 @@ com! FormatJSON %!python -m json.tool
 
 " keyboard shortcuts
 let mapleader = ','
-:map <leader>f :FZF --height=10<cr>
+:map <leader>f :FZF<cr>
 :map <leader>a :Ag<space>
 :map <leader>d :NERDTreeToggle<cr>
 :map <leader>l <ESC>csw]<ESC>Ea()<ESC>i
