@@ -8,6 +8,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
+# Add homebrew arm to path
+if [ -d "/opt/homebrew/bin" ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+# ibrew to install intel based version of the package
+function ibrew() {
+   arch --x86_64 /usr/local/bin/brew $@
+}
+
 # Add awscli and kubectl to path
 export PATH=~/Library/Python/3.7/bin:$HOME/bin:$HOME/.bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
