@@ -127,8 +127,8 @@ alias sup='git push --set-upstream origin HEAD'
 alias g-='gco -'
 
 #jruby
-alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
-alias j12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
+# alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
+# alias j12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
 
 # Kubernetes
 alias k=kubectl

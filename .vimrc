@@ -67,7 +67,7 @@ Plug 'nikvdp/ejs-syntax'
 
 "js/jsx/react
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Ruby/Rails specific
@@ -172,7 +172,7 @@ endfunction
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " enable sparkup in js and jsx files
-autocmd FileType javascript,jsx,ftl,javascript.jsx,svelte runtime! ftplugin/html/sparkup.vim
+autocmd FileType javascript,jsx,ftl,javascript.jsx,svelte,javascriptreact runtime! ftplugin/html/sparkup.vim
 
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
 function! QuickfixFilenames()
