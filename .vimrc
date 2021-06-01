@@ -32,6 +32,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  setlocal spell spelllang=en_gb
+
 let g:netrw_liststyle = 3 " Set directory listing style
 let g:netrw_altv = 1 " Open split to the right
 let g:netrw_winsize = 25 " Smaller window
@@ -43,10 +44,14 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Visuals
 Plug 'rakr/vim-two-firewatch'
 Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 
 Plug 'rking/ag.vim'
@@ -63,7 +68,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'IN3D/vim-raml'
 Plug 'chaquotay/ftl-vim-syntax'
 Plug 'Galooshi/vim-import-js'
-Plug 'nikvdp/ejs-syntax'
+Plug 'briancollins/vim-jst'
 
 "js/jsx/react
 Plug 'pangloss/vim-javascript'
@@ -109,9 +114,9 @@ endif
 
 set nocursorline " don't highlight current line
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/tmp/cache
-set background=dark
+" set background=dark
 " set guifont=fira-code
-set guifont=Source\ Code\ Pro\ Light:h14
+set guifont=Inconsolata\ for\ powerline:h16
 
 "function to format json files
 com! FormatJSON %!python -m json.tool
@@ -138,8 +143,9 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 nnoremap <leader><space> :call Strip_trailing()<CR>
-" Theme settings
 " let g:two_firewatch_italics=1
+" colo two-firewatch
+
 colo seoul256
 
 " Cursor settings
@@ -172,7 +178,7 @@ endfunction
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " enable sparkup in js and jsx files
-autocmd FileType javascript,jsx,ftl,javascript.jsx,svelte,javascriptreact runtime! ftplugin/html/sparkup.vim
+autocmd FileType javascript,jsx,ftl,javascript.jsx,svelte,javascriptreact,jst runtime! ftplugin/html/sparkup.vim
 
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
 function! QuickfixFilenames()
@@ -187,7 +193,9 @@ endfunction
 " Linter config
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier'],
+\   'javascriptreact': ['eslint', 'prettier'],
+\   'json': ['prettier']
 \}
 
 let g:ale_fix_on_save = 1
@@ -205,3 +213,6 @@ function! French_accented_text()
   %s/â/â/g
   %s/ô/ô/g
 endfunction
+
+" enable javascript snippets in javascriptreact files
+autocmd FileType javascriptreact UltiSnipsAddFiletypes javascript
